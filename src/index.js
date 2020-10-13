@@ -1,3 +1,13 @@
 module.exports = function check(str, bracketsConfig) {
-  // your solution
+	let strReverse;
+	while (str) {
+		for (let i of bracketsConfig) {
+			str = str.replace(i.join(''), '')
+		}
+		if (str === strReverse) {
+			return false;
+		}
+		strReverse = str;
+	}
+	return str.length === 0;
 }
